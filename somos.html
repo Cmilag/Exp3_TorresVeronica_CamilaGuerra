@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Plantiful</title>
+    <link rel="icon" href="img/logotipo.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/estilos.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light col-12">
+        <!-- logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+            <img src="img/logo.png" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+        </a>
+
+
+        <!-- enlaces -->
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="somos.html">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="galeria.html">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ingresar.html">Ingresar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Carrusel-->
+
+    <main role="main" class="container col-12">
+        <div sclass="c-wrapper">
+            <div id="carousel1" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel1" data-slide-to="1"></li>
+                    <li data-target="#carousel1" data-slide-to="2"></li>
+                </ul>
+                <div class="container">
+                    <div id="carrusel" class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/banner/banner1.jpg" class="img-fluid" alt="banner1" />
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="img/banner/banner2.jpg" class="img-fluid" alt="banner2" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner/banner3.jpg" class="img-fluid" alt="banner3" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- botones de desplazamiento a izquierda y derecha -->
+                <a class="carousel-control-prev" href="#carousel1" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carousel1" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+        </div>
+        <!--VIDEO YOUTUBE-->
+
+        <div class="video-responsive">
+            <iframe
+                src="https://www.youtube.com/embed/Iyda665OurU?origin=https%3A%2F%2Fabrazame.cl&autoplay=0&controls=1&mute=1&rel=0&showinfo=0&enablejsapi=1&widgetid=1"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row jumbotron" id="somos">
+            <div class="col-lg-6">
+                <div>
+                    <h1>Quiénes Somos</h1><br>
+                    <p>Plantiful está compuesta por vecinos de una comunidad que comenzamos a
+                        realizar la venta de productos para jardinería con el fin de ayudar a
+                        una fundación sin fines de lucro.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6" style="align-content: center;">
+                <img class="bd-placeholder-img center" src="img/jumbotron/jumbo1.jpg" height="250px" width="100%"></img>
+            </div>
+        </div>
+        <div class="row jumbotron" id="somos">
+            <div class="col-lg-6">
+                <img class="bd-placeholder-img rounded-circle center" src="img/abrazame.jpeg" height="250px"
+                    width="250px"></img>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <h1>Nuestra misión</h1><br>
+                    <p>Destinamos un porcentaje de nuestras ganancias a la fundación <strong>"Abrazame"</strong>,
+                        por lo tanto, por cada compra que realizas estás ayudando a niños, niñas y adolescentes
+                        en situación de vulnerabilidad.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row jumbotron" id="somos">
+            <div class="col-lg-6">
+                <div>
+                    <h1>Nuestro Compromiso</h1><br>
+                    <p> Estamos comprometidos con la naturaleza, el medio ambiente y con los niños,
+                        por eso queremos que más personas se unan a esta causa y viva la experiencia
+                        <strong>Plantiful.</strong> Sembrando buenas y sanas infancias.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img class="bd-placeholder-img rounded-circle center" src="img/manos.jpg" height="250px"
+                    width="250px"></img>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-lg-start text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block ">
+                <span id="spanfooter">Síguenos en nuestras redes sociales:</span>
+            </div>
+
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/facebook.png" style="width: auto; height: 30px"></img>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/instagram.png" style="width: auto; height: 30px"></img>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/twitter.png" style="width: auto; height: 30px"></img>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
+                        <img src="img/logo2.png" class="rounded-circle" style="width: auto; height: 80px "></img>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Plantiful
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            Inicio
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Tienda
+                        </h6>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            Contacto
+                        </h6>
+                        <p><img src="img/ubicacion.png" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
+                            Santiago
+                        </p>
+                        <p>
+                            <img src="img/correo.png" style="width: auto; height: 20px"></img>
+                            contacto@plantiful.cl
+                        </p>
+                        <p><img src="img/telefono.png" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copyright -->
+        <div id="copyright" class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <h6>Camila Guerra - Verónica Torres © 2022 Copyright:</h6>
+            <h6><a class="text-reset fw-bold" href="home.html">Plantiful</a></h6>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

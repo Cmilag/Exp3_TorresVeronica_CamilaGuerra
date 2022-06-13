@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="img/logotipo.png">
+    <title>Plantiful</title>
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <meta charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/estilos.css" type="text/css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://rawcdn.githack.com/franz1628/validacionKeyCampo/bce0e442ee71a4cf8e5954c27b44bc88ff0a8eeb/validCampoFranz.js"></script>
+
+
+    <script>
+
+
+        $(function () {
+            $("#miform-registro").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    nombre: "required",
+                    apellido: "required",
+                    fecha: "required",
+                    password2: {
+                        required: true,
+                        equalTo: "#password"
+                    }
+
+                }, //rules
+                messages: {
+                    email: {
+                        required: 'Ingresa tu correo electrónico',
+                        email: 'Formato de correo no válido'
+                    },
+                    nombre: {
+                        required: 'Ingrese el nombre',
+                    },
+                    apellido: {
+                        required: 'Ingrese el apellido',
+                    },
+                    fecha: {
+                        required: 'Seleccione una fecha',
+                        min: 'Fecha no corresponde',
+                        max: 'Debes ser mayor de edad'
+                    },
+                    password: {
+                        required: 'Ingresa una contraseña',
+                        minlength: 'Caracteres insuficientes'
+                    },
+                    password2: {
+                        required: 'Reingresa la contraseña',
+                        equalTo: 'Las contraseñas ingresadas no coinciden',
+                        minlength: 'Caracteres insuficientes'
+
+                    }
+                }//messages
+            }); //$('#miform').validate
+        }); //function
+
+
+    </script>
+    <script>
+        function Mover(obj) {
+            obj.style.background = "#B87247";
+        }
+        function MoverFuera(obj) {
+            obj.style.background = "#2B7929";
+
+        }
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.get("https://apis.digital.gob.cl/dpa/regiones",
+                function (data) {
+                    $.each(data, function (i, item) {
+                        $("#float-region").append("<option value='" + item.codigo + "'>" + item.nombre + "</option>");
+                    })
+                });
+
+        });
+    </script>
+    <script>
+        function getComunas() {
+            $("#float-comuna").empty();
+            var select = document.getElementById("float-region");
+            $.get("https://apis.digital.gob.cl/dpa/regiones/" + select.value + "/comunas",
+                function (data) {
+                    $.each(data, function (i, item) {
+                        $("#float-comuna").append("<option value='" + item.codigo + "'>" + item.nombre + "</option>");
+                    })
+                });
+        }
+    </script>
+    <script>
+        //Para escribir solo letras, no admite numeros en el input
+        $(function () {
+            $('#nombre').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+            $('#apellido').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+        });
+    </script>
+
+</head>
+
+<main>
+
+    <header>
+
+    </header>
+
+    <body>
+
+        <!--Menú-->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light col-12">
+            <!-- logo -->
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            </a>
+
+
+            <!-- enlaces -->
+            <div class="collapse navbar-collapse" id="opciones">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="somos.html">Quienes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ingresar.html">Ingresar</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <hr>
+
+        <div id="div-contacto">
+
+            <h1>Crear una cuenta</h1>
+            <div class="container-fluid">
+
+
+                <div class="card text-center">
+                    <div class="card-body" id="registro">
+                        <form id="miform-registro" method="post" action="ingresar.html">
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="float-nombre" name="nombre"
+                                    placeholder="Ingresa tu nombre" onblur="Mayus()" required>
+                                <label for="float-nombre">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="float-apellido" name="apellido"
+                                    placeholder="Ingresa tu apellido" onblur="Mayus()" required>
+                                <label for="float-nombre">Apellido</label>
+                            </div>
+
+
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="float-email" name="email"
+                                    placeholder="nombre@dominio.cl" required>
+                                <label for="float-email">Email</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="float-region" onChange="getComunas()">
+                                    <option selected>Seleccione</option>
+                                </select>
+                                <label for="float-region">Región</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="float-comuna">
+                                    <option selected>Seleccione</option>
+                                </select>
+                                <label for="float-comuna">Comuna</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                                    minlength="8" oncopy="return false" required>
+                                <label for="password">Contraseña</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password2" name="password2" placeholder="Password"
+                                    minlength="8" onpaste="return false" required>
+                                <label for="password2">Repite Contraseña</label>
+                            </div>
+
+
+
+                            <!--Dom para cambiar el color de los botones-->
+                            <input id="btnform" type="submit" onmouseover="Mover(this)" value="Enviar"
+                                onmouseout="MoverFuera(this)">
+
+
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+</main>
+
+
+
+<div>
+    <footer class="text-center text-lg-start text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block ">
+                <span id="spanfooter">Síguenos en nuestras redes sociales:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/facebook.png" style="width: auto; height: 30px"></img>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/instagram.png" style="width: auto; height: 30px"></img>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <img src="img/twitter.png" style="width: auto; height: 30px"></img>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
+                        <!-- Content -->
+                        <img src="img/logo2.png" class="rounded-circle" style="width: auto; height: 80px "></img>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Plantiful
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            Inicio
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Tienda
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase text-center fw-bold mb-4">
+                            Contacto
+                        </h6>
+                        <p><img src="img/ubicacion.png" style="width: auto; height: 20px"></img> Camino Melipilla
+                            1432,
+                            Santiago
+                        </p>
+                        <p>
+                            <img src="img/correo.png" style="width: auto; height: 20px"></img>
+                            contacto@plantiful.cl
+                        </p>
+                        <p><img src="img/telefono.png" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div id="copyright" class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <h6>Camila Guerra - Verónica Torres © 2022 Copyright:</h6>
+            <h6><a class="text-reset fw-bold" href="home.html">Plantiful</a></h6>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</div>
+
+
+</body>
+
+</html>
