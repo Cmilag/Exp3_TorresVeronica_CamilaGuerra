@@ -146,7 +146,7 @@ def modificar_cliente(request,id):
 def eliminar_cliente(request, id):
     cliente = Cliente.objects.get(id = id)
     cliente.delete()
-<<<<<<< HEAD
+
     return redirect('lista')
 
 
@@ -199,7 +199,3 @@ def eliminar_producto(request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
     return redirect('listaP')
-=======
->>>>>>> 697968bfd0926f9c702e26acbcc4da1eae17c0eb
-    return redirect('lista')
->>>>>>> origin/main
