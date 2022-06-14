@@ -39,8 +39,6 @@ def listaP(request):
         'productos':productos
     }
     return render(request, 'listaP.html', contexto)
-<<<<<<< HEAD
-
 
 def crear_cliente(request):
     if request.method=='POST': 
@@ -107,7 +105,6 @@ def modificar_producto(request,id):
 def eliminar_producto(request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
-=======
 
 def crear_cliente(request):
     if request.method == 'GET':
