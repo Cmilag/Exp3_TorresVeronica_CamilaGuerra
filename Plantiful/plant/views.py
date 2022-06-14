@@ -39,6 +39,75 @@ def listaP(request):
         'productos':productos
     }
     return render(request, 'listaP.html', contexto)
+<<<<<<< HEAD
+
+
+def crear_cliente(request):
+    if request.method=='POST': 
+        cliente_form = ClienteForm(request.POST)
+        if cliente_form .is_valid:
+            cliente_form .save()
+            return redirect ('lista')
+    else:
+        cliente_form  =ClienteForm()
+    return render(request, 'crear_cliente.html', {'cliente_form': cliente_form})
+
+def modificar_cliente(request,id):
+    cliente = Cliente.objects.get(id = id)
+    if request.method == 'GET':
+        formulario = ClienteForm(instance = cliente)
+        context = {
+        'form_cliente' : formulario
+        }
+    else:
+        formulario = ClienteForm(request.POST, instance = cliente)
+        context = {
+        'form_cliente' : formulario
+        }
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('lista')
+    return render(request,'crear_cliente.html',context)
+
+
+def eliminar_cliente(request, id):
+    cliente = Cliente.objects.get(id = id)
+    cliente.delete()
+    return redirect('lista')
+
+
+def crear_producto(request):
+    if request.method=='POST': 
+        producto_form = ProductoForm(request.POST)
+        if producto_form .is_valid:
+            producto_form .save()
+            return redirect ('lista')
+    else:
+        producto_form  =ProductoForm()
+    return render(request, 'crear_producto.html', {'producto_form': producto_form})
+
+def modificar_producto(request,id):
+    producto = Producto.objects.get(id = id)
+    if request.method == 'GET':
+        formulario = ProductoForm(instance = producto)
+        context = {
+        'form_producto' : formulario
+        }
+    else:
+        formulario = ProductoForm(request.POST, instance = producto)
+        context = {
+        'form_producto' : formulario
+        }
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('lista')
+    return render(request,'crear_producto.html',context)
+
+
+def eliminar_producto(request, id):
+    producto = Producto.objects.get(id = id)
+    producto.delete()
+=======
 
 def crear_cliente(request):
     if request.method == 'GET':
@@ -77,6 +146,7 @@ def modificar_cliente(request,id):
 def eliminar_cliente(request, id):
     cliente = Cliente.objects.get(id = id)
     cliente.delete()
+<<<<<<< HEAD
     return redirect('lista')
 
 
@@ -129,3 +199,7 @@ def eliminar_producto(request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
     return redirect('listaP')
+=======
+>>>>>>> 697968bfd0926f9c702e26acbcc4da1eae17c0eb
+    return redirect('lista')
+>>>>>>> origin/main
