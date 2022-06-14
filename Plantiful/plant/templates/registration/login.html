@@ -44,9 +44,9 @@
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
+                    <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
                 </li>
-           
+
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@ {{user.username}}</a>
@@ -63,7 +63,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
+                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Incia Sesión</a>
                 </li>
                 {% endif %}
             </ul>
@@ -71,24 +71,29 @@
     </nav>
 
 
-  <br><br><br>
-    <div class="container-fluid">
-
-        <form method="POST" action="#" id="formulario">
-            <a href="{% url 'lista' %}" class="btn btn-success">&#8672; Volver al Listado</a>
+    <main role="main" class="container col-12">
+    
+        {% load crispy_forms_tags %}
+        <div class="container">
             <br><br><br>
-            <div class="form-group">
-                {% csrf_token %}
-                {{form_cliente.as_p}}
+            <div class="row">
+                <div class="col-12 col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Inicia Sesión</h2>
+                            <hr>
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <input type="submit" class="btn btn-success" value="Volver al Inicio"href="{% url 'index' %}">
+                                <input type="submit" class="btn btn-success" value="Ingresar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <input type="submit" class="btn btn-success" value="Enviar">
-            <input type="reset" class="btn btn-success" value="Limpiar">
-            
-        </form>
-
-    </div>
-
+        </div>
+    </main>
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-lg-between p-4 border-bottom">

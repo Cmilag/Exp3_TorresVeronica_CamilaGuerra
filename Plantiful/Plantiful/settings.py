@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "plant",
+    "crispy_forms",
 ]
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -118,3 +123,6 @@ STATICFIELS_DIRS = (os.path.join(BASE_DIR, 'Plantiful/plant/static'),)
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL ='media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

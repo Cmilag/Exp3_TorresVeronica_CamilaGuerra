@@ -26,7 +26,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="{% static 'img/logo.png' %}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            <img src="{% static 'img/logo.png' %}" class="rounded-circle"
+                style="width: auto; height: 80px; margin-left: 20px;">
         </a>
         <div class="collapse navbar-collapse" id="opciones">
             <ul class="navbar-nav">
@@ -41,66 +42,54 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
+                </li>
+           
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@ {{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista' %}">Listado Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'listaP' %}">Listado Productos</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color: red ">Cerrar Sesión</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
+                </li>
+                {% endif %}
             </ul>
-        </div> 
+        </div>
     </nav>
     <main role="main" class="container col-12">
         <title>Crear producto</title>
-   
-        <script>
-
-            $(function () {
-                $("#formulario").validate({
-                    rules: {
-                        Codigo: "required",
-                        Nombre: "required",
-                        Valor: "required",
-                        Tipo: "required",
-                    },
-    
-                    messages:
-                    {
-                        Codigo: {
-                            required: 'Ingrese Codigo Del Producto'
-                        },
-                        Nombre: {
-                            required: 'Ingresa Nombre Del Producto',
-                        },
-                        Valor: {
-                            required: 'Ingrese Valor Del Producto',
-    
-                        },
-                        Tipo: {
-                            required: 'Ingrese Tipo De Producto',
-                        },
-    
-                    }
-                });
-            });
-        </script>
     </main>
     <div class="container">
+<br><br><br>
+        <div class="container-fluid">
 
-        <div class="row">
-            <h2>Creando Productos</h2>
-        </div>
-
-        <div class="row">
-            <form method="POST" action="#" id="formulario">
-
+            <form method="POST" action="#" id="formulario" enctype="multipart/form-data">
+    
                 <div class="form-group">
                     {% csrf_token %}
-                    {{formi.as_p}}
+                    {{form_producto.as_p}}
+                    <label>Imagen</label>
+                    <input type="file" name="txtImagen" id="txtImagen" accept="image/*" required="">
                 </div>
-
+                <a href="{% url 'listaP' %}" class="btn btn-success">&#8672; Volver al Listado</a>
                 <input type="submit" class="btn btn-success" value="Enviar">
                 <input type="reset" class="btn btn-success" value="Limpiar">
-                <a href="{% url 'index' %}" class="btn btn-success">Volver al Listado</a><!-- cambiar href-->
+                
             </form>
+    
         </div>
     </div>
     <footer class="text-center text-lg-start text-muted">

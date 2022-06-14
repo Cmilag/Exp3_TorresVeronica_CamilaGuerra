@@ -26,7 +26,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="{% static 'img/logo.png' %}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            <img src="{% static 'img/logo.png' %}" class="rounded-circle"
+                style="width: auto; height: 80px; margin-left: 20px;">
         </a>
         <div class="collapse navbar-collapse" id="opciones">
             <ul class="navbar-nav">
@@ -41,9 +42,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
-                </li> 
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
+                    <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
+                </li>
+           
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@ {{user.username}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'lista' %}">Listado Clientes</a>
@@ -51,23 +57,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'listaP' %}">Listado Productos</a>
                 </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color: red ">Cerrar Sesión</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
+                </li>
+                {% endif %}
             </ul>
-        </div> 
+        </div>
     </nav>
     <!--codigo para listar clientes-->
     <br><br><br>
-
+    {% if user.is_authenticated %}
     <div>
         <h1>Listado de Productos</h1>
-        <table class="table table-striped">
-            <thead class="thead-dark">
+        <table class="table table-striped table-bordered table-responsive-sm">
+            <thead class="thead-light">
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Valor</th>
-                    <th>Categoría</th>
-                    <th></th>
-                    <th></th>
+                    <th id="titTabla">ID</th>
+                    <th id="titTabla">Nombre</th>
+                    <th id="titTabla">Valor</th>
+                    <th id="titTabla">Categoría</th>
+                    <th id="titTabla">Imagen</th>
+                    <th id="titTabla"></th>
+                    <th id="titTabla"></th>
                 </tr>
             </thead>
             <tbody>
@@ -77,15 +93,24 @@
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.valor}}</td>
                     <td>{{producto.categoria}}</td>
+                    <td>
+                        {% if producto.imagen%}
+                        <img src="{{producto.imagen.url}}" width="200px" height="200px">
+                    </td>
+                    {% endif%}
+                    <td><a href="{% url 'modificar_producto' producto.id %}">Modificar</a></td>
+                    <td><a id="eliminar" href="{% url 'eliminar_producto' producto.id %}">Eliminar</a></td> 
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
+    {% else %}
+        <h2 style="color: red">PERMISO DENEGADO</h2>
+    {% endif %}
     <div>
-        <a href="{% url 'index' %}" class="btn btn-success">Página Principal</a>
-        <a href="{% url 'listaP' %}" class="btn btn-success" style="float: right">Registrar Producto</a>
+        <a href="{% url 'index' %}" class="btn btn-success">&#8672; Página Principal</a>
+        <a href="{% url 'crear_producto' %}" class="btn btn-success" style="float: right">Registrar Producto</a>
         <br><br><br><br>
     </div>
     <br><br><br>

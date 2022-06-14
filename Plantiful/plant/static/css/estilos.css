@@ -231,3 +231,35 @@ span, #temp{
 {
   text-align: center;
 }
+
+table tr {
+  border: 2px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+
+}
+
+#titTabla{
+  background-color:#BFA879;
+}
+
+#eliminar{
+  color: red;
+}
+
+#btnRegistrar{
+  float: right;
+ margin-left: 10px;
+ padding-left: 10px;
+}
+
+#btnVolver{
+
+  margin-right: 10px;
+  padding-right: 10px;
+}

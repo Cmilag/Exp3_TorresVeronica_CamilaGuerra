@@ -28,7 +28,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="{% static 'img/logo.png' %}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            <img src="{% static 'img/logo.png' %}" class="rounded-circle"
+                style="width: auto; height: 80px; margin-left: 20px;">
         </a>
         <div class="collapse navbar-collapse" id="opciones">
             <ul class="navbar-nav">
@@ -43,10 +44,30 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
+                </li>
+           
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@ {{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista' %}">Listado Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'listaP' %}">Listado Productos</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color: red ">Cerrar Sesión</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

@@ -17,6 +17,6 @@ class Producto(models.Model):
     nombre = models.CharField(max_length = 50, verbose_name='Nombre Producto')
     valor = models.CharField(max_length = 10, verbose_name= 'Valor')
     categoria = models.CharField(max_length=50, verbose_name='Categoría')
-    #foto
+    imagen = models.ImageField(upload_to="productos", null = True)
     def __str__(self):
         return self.nombre
