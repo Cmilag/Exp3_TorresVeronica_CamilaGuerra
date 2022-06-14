@@ -38,6 +38,7 @@ def listaP(request):
         'productos':productos
     }
     return render(request, 'listaP.html', contexto)
+<<<<<<< HEAD
 
 
 def crear_cliente(request):
@@ -105,4 +106,38 @@ def modificar_producto(request,id):
 def eliminar_producto(request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
+=======
+
+def crear_cliente(request):
+    if request.method=='POST': 
+        cliente_form = ClienteForm(request.POST)
+        if cliente_form .is_valid:
+            cliente_form .save()
+            return redirect ('lista')
+    else:
+        cliente_form  =ClienteForm()
+    return render(request, 'crear_cliente.html', {'cliente_form': cliente_form})
+
+def modificar_cliente(request,id):
+    cliente = Cliente.objects.get(id = id)
+    if request.method == 'GET':
+        formulario = ClienteForm(instance = cliente)
+        context = {
+        'formulario' : formulario
+        }
+    else:
+        formulario = ClienteForm(request.POST, instance = cliente)
+        context = {
+        'formulario' : formulario
+        }
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('lista')
+    return render(request,'crear_cliente.html',context)
+
+
+def eliminar_cliente(request, id):
+    cliente = Cliente.objects.get(id = id)
+    cliente.delete()
+>>>>>>> 697968bfd0926f9c702e26acbcc4da1eae17c0eb
     return redirect('lista')
