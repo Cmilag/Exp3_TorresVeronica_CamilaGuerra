@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <link rel="icon" href="img/logotipo.png">
+    {%load static%}
+    <link rel="icon" href="{% static 'img/logotipo.png '%}">
     <title>Plantiful</title>
 
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
@@ -11,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="css/estilos.css" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/estilos.css'%}" type="text/css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -118,6 +119,7 @@
 </head>
 
 <main>
+    {%load static%}
 
     <header>
 
@@ -133,7 +135,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+                <img src="{% static 'img/logo.png'%}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
             </a>
 
 
@@ -245,15 +247,16 @@
             <!-- Left -->
 
             <!-- Right -->
+            {% load static %}
             <div>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/facebook.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/facebook.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/instagram.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/instagram.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/twitter.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/twitter.png '%}" style="width: auto; height: 30px"></img>
                 </a>
             </div>
             <!-- Right -->
@@ -268,7 +271,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
                         <!-- Content -->
-                        <img src="img/logo2.png" class="rounded-circle" style="width: auto; height: 80px "></img>
+                        <img src="{% static 'img/logo2.png '%}" class="rounded-circle" style="width: auto; height: 80px "></img>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -303,15 +306,15 @@
                         <h6 class="text-uppercase text-center fw-bold mb-4">
                             Contacto
                         </h6>
-                        <p><img src="img/ubicacion.png" style="width: auto; height: 20px"></img> Camino Melipilla
+                        <p><img src="{% static 'img/ubicacion.png '%}" style="width: auto; height: 20px"></img> Camino Melipilla
                             1432,
                             Santiago
                         </p>
                         <p>
-                            <img src="img/correo.png" style="width: auto; height: 20px"></img>
+                            <img src="{% static 'img/correo.png '%}" style="width: auto; height: 20px"></img>
                             contacto@plantiful.cl
                         </p>
-                        <p><img src="img/telefono.png" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                        <p><img src="{% static 'img/telefono.png '%}" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
                     </div>
                     <!-- Grid column -->
                 </div>

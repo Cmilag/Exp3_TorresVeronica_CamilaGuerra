@@ -2,14 +2,15 @@
 <html>
 
 <head>
+    {%load static%}
     <title>Plantiful</title>
-    <link rel="icon" href="img/logotipo.png">
+    <link rel="icon" href="{% static 'img/logotipo.png '%}">
     <meta charset="utf-8">
     <script src="contador.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="css/estilos.css" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/estilos.css'%}" type="text/css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -75,6 +76,7 @@
 </script>
 
 <body>
+    {%load static%}
 
     <!--Menú-->
     <nav class="navbar navbar-expand-sm navbar-light bg-light col-12">
@@ -84,7 +86,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-            <img src="img/logo.png" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            <img src="{% static 'img/logo.png'%}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
         </a>
 
 
@@ -121,16 +123,17 @@
                     <li data-target="#carousel1" data-slide-to="2"></li>
                 </ul>
                 <!-- diapositivas arreglar que se amplia el ancho al avanzar la segunda imagen -->
+                {%load static%}
                 <div class="container">
                     <div id="carrusel" class="carousel-inner" style="border-radius: 10px;">
                         <div class="carousel-item active">
-                            <img src="img/banner/banner1.jpg" class="img-fluid" alt="banner1" />
+                            <img src="{% static '{% static 'img/banner/banner1.jpg'%} '%}" class="img-fluid" alt="banner1" />
                         </div>
                         <div class="carousel-item ">
-                            <img src="img/banner/banner2.jpg" class="img-fluid" alt="banner2" />
+                            <img src="{% static '{% static 'img/banner/banner2.jpg'%} '%}" class="img-fluid" alt="banner2" />
                         </div>
                         <div class="carousel-item">
-                            <img src="img/banner/banner3.jpg" class="img-fluid" alt="banner3" />
+                            <img src="{% static '{% static 'img/banner/banner3.jpg'%} '%}" class="img-fluid" alt="banner3" />
                         </div>
                     </div>
                 </div>
@@ -172,11 +175,12 @@
         <h1><strong>Nuestra Tienda</strong></h1><br>
 
         <h3><strong>Plantas</strong></h3><br>
+        {%load static%}
         <div class="row">
 
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/plantas/flor4_orejitas de oso.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/plantas/flor4_orejitas de oso.jpg'%}">
                     <div class="card-body">
                         <h4 class="card-title">Orejitas de oso</h4>
                         <p class="card-text">$5.990 <br></p>
@@ -185,10 +189,10 @@
                     </div>
                 </div>
             </div>
-
+            {%load static%}
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/plantas/Cala-en-macetero.jpg">
+                    <img class="card-img-top mx-auto" src="{% static'img/plantas/Cala-en-macetero.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Cala</h4>
                         <p class="card-text">$10.990<br></p>
@@ -197,10 +201,10 @@
                     </div>
                 </div>
             </div>
-
+            {%load stati%}
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/plantas/flor6.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/plantas/flor6.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Tulipán</h4>
                         <p class="card-text">$8.990<br></p>
@@ -213,11 +217,12 @@
         </div>
 
         <h3><strong>Herramientas</strong></h3><br>
+        {%load static%}
         <div class="row">
 
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/herramientas/regadera2.jpg">
+                    <img class="card-img-top mx-auto" src="{% static'img/herramientas/regadera2.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Regadera</h4>
                         <p class="card-text">$6.990 <br></p>
@@ -226,10 +231,10 @@
                     </div>
                 </div>
             </div>
-
+            {%load static%}
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/herramientas/herramientas2.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/herramientas/herramientas2.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Set de Herramientas</h4>
                         <p class="card-text">$15.990 <br></p>
@@ -238,10 +243,10 @@
                     </div>
                 </div>
             </div>
-
+            {%load static%}
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/herramientas/guante.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/herramientas/guante.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Guantes</h4>
                         <p class="card-text">$3.990<br></p>
@@ -253,11 +258,12 @@
 
         </div>
         <h3><strong>Maceteros</strong></h3><br>
+        
         <div class="row">
 
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/Maceteros/macetero3.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/Maceteros/macetero3.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Primavera</h4>
                         <p class="card-text">Desde $5.990<br></p>
@@ -266,10 +272,10 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/maceteros/macetero1.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/maceteros/macetero1.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Geometrico</h4>
                         <p class="card-text">Desde $5.990 <br></p>
@@ -278,10 +284,10 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md">
                 <div class="card text-center">
-                    <img class="card-img-top mx-auto" src="img/maceteros/macetero4.jpg">
+                    <img class="card-img-top mx-auto" src="{% static 'img/maceteros/macetero4.jpg '%}">
                     <div class="card-body">
                         <h4 class="card-title">Luxury</h4>
                         <p class="card-text">Desde $8.990 <br></p>
@@ -304,15 +310,16 @@
             <!-- Left -->
 
             <!-- Right -->
+           
             <div>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/facebook.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/facebook.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/instagram.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/instagram.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/twitter.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/twitter.png '%}" style="width: auto; height: 30px"></img>
                 </a>
             </div>
             <!-- Right -->
@@ -327,7 +334,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
                         <!-- Content -->
-                        <img src="img/logo2.png" class="rounded-circle" style="width: auto; height: 80px "></img>
+                        <img src="{% static 'img/logo2.png '%}" class="rounded-circle" style="width: auto; height: 80px "></img>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -362,14 +369,14 @@
                         <h6 class="text-uppercase text-center fw-bold mb-4">
                             Contacto
                         </h6>
-                        <p><img src="img/ubicacion.png" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
+                        <p><img src="{% static 'img/ubicacion.png '%}" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
                             Santiago
                         </p>
                         <p>
-                            <img src="img/correo.png" style="width: auto; height: 20px"></img>
+                            <img src="{% static 'img/correo.png '%}" style="width: auto; height: 20px"></img>
                             contacto@plantiful.cl
                         </p>
-                        <p><img src="img/telefono.png" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                        <p><img src="{% static 'img/telefono.png '%}" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
                     </div>
                     <!-- Grid column -->
                 </div>

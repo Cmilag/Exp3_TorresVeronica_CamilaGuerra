@@ -2,15 +2,17 @@
 <html>
 
 <head>
+    {%load static%}
     <title>Plantiful</title>
-    <link rel="icon" href="img/logotipo.png">
+    <link rel="icon" href="{% static 'img/logotipo.png '%}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="css/estilos.css" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/estilos.css'%}" type="text/css" rel="stylesheet">
 </head>
 
 <body>
+    {%load static%}
 
     <!--Menú-->
     <nav class="navbar navbar-expand-sm navbar-light bg-light col-12">
@@ -20,7 +22,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-            <img src="img/logo.png" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
+            <img src="{% static 'img/logo.png'%}" class="rounded-circle" style="width: auto; height: 80px; margin-left: 20px;">
         </a>
 
 
@@ -58,16 +60,17 @@
                     <li data-target="#carousel1" data-slide-to="2"></li>
                 </ul>
                 <!-- diapositivas arreglar que se amplia el ancho al avanzar la segunda imagen -->
+                {%load static%}
                 <div class="container col-12">
                     <div id="carrusel" class="carousel-inner" style="border-radius: 10px;">
                         <div class="carousel-item active">
-                            <img src="img/banner/banner1.jpg" class="img-fluid" alt="banner1" />
+                            <img src="{% static '{% static 'img/banner/banner1.jpg'%} '%}" class="img-fluid" alt="banner1" />
                         </div>
                         <div class="carousel-item ">
-                            <img src="img/banner/banner2.jpg" class="img-fluid" alt="banner2" />
+                            <img src="{% static '{% static 'img/banner/banner2.jpg'%}'%}" class="img-fluid" alt="banner2" />
                         </div>
                         <div class="carousel-item">
-                            <img src="img/banner/banner3.jpg" class="img-fluid" alt="banner3" />
+                            <img src="{% static '{% static 'img/banner/banner3.jpg'%} '%}" class="img-fluid" alt="banner3" />
                         </div>
                     </div>
                 </div>
@@ -89,7 +92,7 @@
         <div id="row-foto">
             <div class="row">
                 <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="img/abrazame.jpeg" height="250px"
+                    <img class="bd-placeholder-img rounded-circle center" src="{% static'{% static 'img/abrazame.jpeg'%}'%}" height="250px"
                         width="250px"></img> <br>
                     <h2>Nuestro Compromiso</h2>
                     <p>¿Sabías que parte de nuestras ganancias mensuales van directamente a una fundación sin fines de
@@ -99,8 +102,9 @@
                     <p><a class="btn btn-secondary" href="https://www.abrazame.cl" target="_blank">Conócelos &raquo;</a>
                     </p>
                 </div><!-- /.col-lg-4 -->
+                {%load static%}
                 <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="img/tarjetas/tarjeta3.jpg" height="250px"
+                    <img class="bd-placeholder-img rounded-circle center" src="{% static 'img/tarjetas/tarjeta3.jpg'%}" height="250px"
                         width="250px"></img> <br>
                     <h2>Tienda</h2>
                     <p>Si tienes un pequeño jardín que deseas redecorar o un pequeño apartamento al que le falta la
@@ -126,13 +130,13 @@
             <!-- Right -->
             <div>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/facebook.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/facebook.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/instagram.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/instagram.png '%}" style="width: auto; height: 30px"></img>
                 </a>
                 <a href="" class="me-4 text-reset">
-                    <img src="img/twitter.png" style="width: auto; height: 30px"></img>
+                    <img src="{% static 'img/twitter.png '%}" style="width: auto; height: 30px"></img>
                 </a>
             </div>
             <!-- Right -->
@@ -147,7 +151,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
                         <!-- Content -->
-                        <img src="img/logo2.png" class="rounded-circle" style="width: auto; height: 80px "></img>
+                        <img src="{% static 'img/logo2.png '%}" class="rounded-circle" style="width: auto; height: 80px "></img>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -182,14 +186,14 @@
                         <h6 class="text-uppercase text-center fw-bold mb-4">
                             Contacto
                         </h6>
-                        <p><img src="img/ubicacion.png" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
+                        <p><img src="{% static 'img/ubicacion.png '%}" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
                             Santiago
                         </p>
                         <p>
-                            <img src="img/correo.png" style="width: auto; height: 20px"></img>
+                            <img src="{% static 'img/correo.png '%}" style="width: auto; height: 20px"></img>
                             contacto@plantiful.cl
                         </p>
-                        <p><img src="img/telefono.png" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                        <p><img src="{% static 'img/telefono.png '%}" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
                     </div>
                     <!-- Grid column -->
                 </div>
