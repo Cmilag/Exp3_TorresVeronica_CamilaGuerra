@@ -2,17 +2,17 @@
 <html>
 
 <head>
-  {% load static %}
+    {% load static %}
     <title>Plantiful</title>
     <link rel="icon" href="{% static 'img/logotipo.png' %}">
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
     <!-- jQuery library -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  
+
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  
+
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link type='text/css' rel="stylesheet" href="{% static 'css/estilos.css' %}">
@@ -46,10 +46,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
                 </li>
-           
+
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@ {{user.username}}</a>
+                    <a href="#" class="nav-link text-black" style="color: #2B7929">&#10049; Bienvenid@
+                        {{user.username}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'lista' %}">Listado Clientes</a>
@@ -57,13 +58,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'listaP' %}">Listado Productos</a>
                 </li>
-        
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}" style="color: red ">Cerrar Sesión</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
+                    <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
                 </li>
                 {% endif %}
             </ul>
@@ -73,23 +74,21 @@
         <title>Crear producto</title>
     </main>
     <div class="container">
-<br><br><br>
+        <br><br><br>
         <div class="container-fluid">
-
             <form method="POST" action="#" id="formulario" enctype="multipart/form-data">
-    
+                <a href="{% url 'listaP' %}" class="btn btn-success">&#8672; Volver al Listado</a>
+                <br><br><br>
                 <div class="form-group">
                     {% csrf_token %}
                     {{form_producto.as_p}}
                     <label>Imagen</label>
                     <input type="file" name="txtImagen" id="txtImagen" accept="image/*" required="">
                 </div>
-                <a href="{% url 'listaP' %}" class="btn btn-success">&#8672; Volver al Listado</a>
-                <input type="submit" class="btn btn-success" value="Enviar">
                 <input type="reset" class="btn btn-success" value="Limpiar">
-                
+                <input type="submit" class="btn btn-success" value="Enviar">
             </form>
-    
+
         </div>
     </div>
     <footer class="text-center text-lg-start text-muted">
@@ -97,7 +96,7 @@
         <section class="d-flex justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
             <div class="me-5 d-none d-lg-block ">
-                <span  id="spanfooter">Síguenos en nuestras redes sociales:</span>
+                <span id="spanfooter">Síguenos en nuestras redes sociales:</span>
             </div>
             <!-- Left -->
 
@@ -125,7 +124,8 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 justify-content-center">
                         <!-- Content -->
-                        <img src="{% static 'img/logo2.png' %}" class="rounded-circle" style="width: auto; height: 80px "></img>
+                        <img src="{% static 'img/logo2.png' %}" class="rounded-circle"
+                            style="width: auto; height: 80px "></img>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -160,14 +160,16 @@
                         <h6 class="text-uppercase text-center fw-bold mb-4">
                             Contacto
                         </h6>
-                        <p><img src="{% static 'img/ubicacion.png' %}" style="width: auto; height: 20px"></img> Camino Melipilla 1432,
+                        <p><img src="{% static 'img/ubicacion.png' %}" style="width: auto; height: 20px"></img> Camino
+                            Melipilla 1432,
                             Santiago
                         </p>
                         <p>
                             <img src="{% static 'img/correo.png' %}" style="width: auto; height: 20px"></img>
                             contacto@plantiful.cl
                         </p>
-                        <p><img src="{% static 'img/telefono.png' %}" style="width: auto; height: 20px"></img> + 56 9 8327 4639</p>
+                        <p><img src="{% static 'img/telefono.png' %}" style="width: auto; height: 20px"></img> + 56 9
+                            8327 4639</p>
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -186,14 +188,14 @@
 
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 

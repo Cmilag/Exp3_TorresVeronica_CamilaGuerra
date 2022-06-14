@@ -73,7 +73,6 @@
 
   <br><br><br>
     <div class="container-fluid">
-
         <form method="POST" action="#" id="formulario">
             <a href="{% url 'lista' %}" class="btn btn-success">&#8672; Volver al Listado</a>
             <br><br><br>
@@ -81,12 +80,9 @@
                 {% csrf_token %}
                 {{form_cliente.as_p}}
             </div>
-
-            <input type="submit" class="btn btn-success" value="Enviar">
             <input type="reset" class="btn btn-success" value="Limpiar">
-            
+            <input type="submit" class="btn btn-success" value="Enviar"> 
         </form>
-
     </div>
 
     <footer class="text-center text-lg-start text-muted">
