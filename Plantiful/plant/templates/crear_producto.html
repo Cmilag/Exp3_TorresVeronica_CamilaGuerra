@@ -45,81 +45,64 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'lista' %}">Listado Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listaP' %}">Listado Productos</a>
-                </li>
             </ul>
         </div> 
     </nav>
-
-
     <main role="main" class="container col-12">
-            <!--Carrusel-->
-        <div sclass="container-fluid">
-            <div id="carousel1" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel1" data-slide-to="1"></li>
-                    <li data-target="#carousel1" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner col-12 col-md-6 offset-md-3">
-                    <div id="carrusel" class="carousel-inner" style="border-radius: 10px;">
-                        <div class="carousel-item active">
-                            <a href="#"> <img src="{% static 'img/banner/banner1.png' %}" class="d-block w-100" width="auto" height="100%" alt="banner1"  /> </a>
-                        </div>
-                        <div class="carousel-item ">
-                            <img src="{% static 'img/banner/banner2.png' %}"  class="d-block w-100" width="auto" height="" alt="banner1" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'img/banner/banner3.png' %}"  class="d-block w-100" width="auto" height="" alt="banner1" />
-                        </div>
+        <title>Crear producto</title>
+   
+        <script>
+
+            $(function () {
+                $("#formulario").validate({
+                    rules: {
+                        Codigo: "required",
+                        Nombre: "required",
+                        Valor: "required",
+                        Tipo: "required",
+                    },
+    
+                    messages:
+                    {
+                        Codigo: {
+                            required: 'Ingrese Codigo Del Producto'
+                        },
+                        Nombre: {
+                            required: 'Ingresa Nombre Del Producto',
+                        },
+                        Valor: {
+                            required: 'Ingrese Valor Del Producto',
+    
+                        },
+                        Tipo: {
+                            required: 'Ingrese Tipo De Producto',
+                        },
+    
+                    }
+                });
+            });
+        </script>
+    </main>
+    <div class="container">
+
+        <div class="row">
+            <h2>Creando Productos</h2>
+        </div>
+
+        <div class="row">
+            <form method="POST" action="#" id="formulario">
+
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{formi.as_p}}
                 </div>
 
-                <!-- botones de desplazamiento a izquierda y derecha -->
-                <a class="carousel-control-prev" href="#carousel1" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel1" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Siguiente</span>
-                </a>
-            </div>
-        </div><!--fin carrusel-->
-
-        <!--Encabezado-->
-        <h1 class="display-1" id="titLogo"><strong>Nosotros</strong></h1>
-        <div id="row-foto">
-            <div class="row">
-                <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="{% static 'img/abrazame.jpeg' %}" height="250px"
-                        width="250px"></img> <br>
-                    <h2>Nuestro Compromiso</h2>
-                    <p>¿Sabías que parte de nuestras ganancias mensuales van directamente a una fundación sin fines de
-                        lucro?
-                        <br> La fundación abrázame ayuda a niños y niñas que viven en hogares a lo largo de todo Chile
-                    </p>
-                    <p><a class="btn btn-secondary" href="https://www.abrazame.cl" target="_blank">Conócelos &raquo;</a>
-                    </p>
-                </div><!-- /.col-lg-4 -->
-                <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="{% static 'img/tarjetas/tarjeta3.jpg' %}" height="250px"
-                        width="250px"></img> <br>
-                    <h2>Tienda</h2>
-                    <p>Si tienes un pequeño jardín que deseas redecorar o un pequeño apartamento al que le falta la
-                        calidez
-                        y frescura de un hogar. Entonces visita nuestra tienda.
-                        <br> Tenemos una gran selección para todos los gustos.
-                    </p>
-                    <p><a class="btn btn-secondary" href="{% url 'galeria' %}"> Llévame &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
+                <input type="submit" class="btn btn-success" value="Enviar">
+                <input type="reset" class="btn btn-success" value="Limpiar">
+                <a href="{% url 'index' %}" class="btn btn-success">Volver al Listado</a><!-- cambiar href-->
+            </form>
         </div>
-        <br><br>
-    </main>
+    </div>
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-lg-between p-4 border-bottom">

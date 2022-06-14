@@ -54,72 +54,41 @@
             </ul>
         </div> 
     </nav>
+    <!--codigo para listar clientes-->
+    <br><br><br>
 
+    <div>
+        <h1>Listado de Productos</h1>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>Categoría</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{producto.id}}</td>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.valor}}</td>
+                    <td>{{producto.categoria}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <main role="main" class="container col-12">
-            <!--Carrusel-->
-        <div sclass="container-fluid">
-            <div id="carousel1" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel1" data-slide-to="1"></li>
-                    <li data-target="#carousel1" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner col-12 col-md-6 offset-md-3">
-                    <div id="carrusel" class="carousel-inner" style="border-radius: 10px;">
-                        <div class="carousel-item active">
-                            <a href="#"> <img src="{% static 'img/banner/banner1.png' %}" class="d-block w-100" width="auto" height="100%" alt="banner1"  /> </a>
-                        </div>
-                        <div class="carousel-item ">
-                            <img src="{% static 'img/banner/banner2.png' %}"  class="d-block w-100" width="auto" height="" alt="banner1" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'img/banner/banner3.png' %}"  class="d-block w-100" width="auto" height="" alt="banner1" />
-                        </div>
-                </div>
-
-                <!-- botones de desplazamiento a izquierda y derecha -->
-                <a class="carousel-control-prev" href="#carousel1" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel1" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Siguiente</span>
-                </a>
-            </div>
-        </div><!--fin carrusel-->
-
-        <!--Encabezado-->
-        <h1 class="display-1" id="titLogo"><strong>Nosotros</strong></h1>
-        <div id="row-foto">
-            <div class="row">
-                <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="{% static 'img/abrazame.jpeg' %}" height="250px"
-                        width="250px"></img> <br>
-                    <h2>Nuestro Compromiso</h2>
-                    <p>¿Sabías que parte de nuestras ganancias mensuales van directamente a una fundación sin fines de
-                        lucro?
-                        <br> La fundación abrázame ayuda a niños y niñas que viven en hogares a lo largo de todo Chile
-                    </p>
-                    <p><a class="btn btn-secondary" href="https://www.abrazame.cl" target="_blank">Conócelos &raquo;</a>
-                    </p>
-                </div><!-- /.col-lg-4 -->
-                <div id="div-row" class="col-md">
-                    <img class="bd-placeholder-img rounded-circle center" src="{% static 'img/tarjetas/tarjeta3.jpg' %}" height="250px"
-                        width="250px"></img> <br>
-                    <h2>Tienda</h2>
-                    <p>Si tienes un pequeño jardín que deseas redecorar o un pequeño apartamento al que le falta la
-                        calidez
-                        y frescura de un hogar. Entonces visita nuestra tienda.
-                        <br> Tenemos una gran selección para todos los gustos.
-                    </p>
-                    <p><a class="btn btn-secondary" href="{% url 'galeria' %}"> Llévame &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-        </div>
-        <br><br>
-    </main>
+    <div>
+        <a href="{% url 'index' %}" class="btn btn-success">Página Principal</a>
+        <a href="{% url 'listaP' %}" class="btn btn-success" style="float: right">Registrar Producto</a>
+        <br><br><br><br>
+    </div>
+    <br><br><br>
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-lg-between p-4 border-bottom">
