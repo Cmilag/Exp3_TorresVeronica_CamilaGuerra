@@ -22,51 +22,7 @@
 
 
     <script>
-        $(function () {
-            $("#miform-registro").validate({
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    nombre: "required",
-                    apellido: "required",
-                    fecha: "required",
-                    password2: {
-                        required: true,
-                        equalTo: "#password"
-                    }
 
-                }, //rules
-                messages: {
-                    email: {
-                        required: 'Ingresa tu correo electrónico',
-                        email: 'Formato de correo no válido'
-                    },
-                    nombre: {
-                        required: 'Ingrese el nombre',
-                    },
-                    apellido: {
-                        required: 'Ingrese el apellido',
-                    },
-                    fecha: {
-                        required: 'Seleccione una fecha',
-                        min: 'Fecha no corresponde',
-                        max: 'Debes ser mayor de edad'
-                    },
-                    password: {
-                        required: 'Ingresa una contraseña',
-                        minlength: 'Caracteres insuficientes'
-                    },
-                    password2: {
-                        required: 'Reingresa la contraseña',
-                        equalTo: 'Las contraseñas ingresadas no coinciden',
-                        minlength: 'Caracteres insuficientes'
-
-                    }
-                }//messages
-            }); //$('#miform').validate
-        }); //function
 
 
     </script>
@@ -106,10 +62,7 @@
     </script>
     <script>
         //Para escribir solo letras, no admite numeros en el input
-        $(function () {
-            $('#float-nombre').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
-            $('#float-apellido').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
-        });
+
     </script>
 
 </head>
@@ -174,10 +127,9 @@
         </nav>
         <hr>
 
-        <div id="div-contacto">
-            <h1>Crear una cuenta</h1>
+        <div id="div-contacto" >
+            <h1>Registrate</h1>
             <div class="container-fluid">
-
                 <div class="card text-center">
                     <div class="card-body" id="registro">
                         <form id="miform-registro" method="post" action="ingresar.html">
@@ -217,18 +169,11 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="float-email" name="email"
                                     placeholder="nombre@dominio.cl" required>
                                 <label for="float-email">Email</label>
                             </div>
-
-
-
-
-
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" minlength="8" oncopy="return false" required>
@@ -240,20 +185,12 @@
                                     placeholder="Password" minlength="8" onpaste="return false" required>
                                 <label for="password2">Repite Contraseña</label>
                             </div>
-
-
-
                             <!--Dom para cambiar el color de los botones-->
                             <input id="btnform" type="submit" onmouseover="Mover(this)" value="Enviar"
                                 onmouseout="MoverFuera(this)">
-
-
-
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -370,6 +307,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="{% static 'js/valida.js' %}"></script>
 </body>
 
 </html>

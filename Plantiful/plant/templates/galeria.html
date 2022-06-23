@@ -16,6 +16,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link href="{% static 'css/estilos.css' %}" type="text/css" rel="stylesheet">
+    <script src="{% static 'js/temporizador.js' %} "></script>
 </head>
 <script>
     function Mover(obj) {
@@ -27,47 +28,7 @@
     }
 </script>
 <script> //rutina javascript cuenta regresiva
-    document.addEventListener('DOMContentLoaded', () => {
-        // VARIABLES
-        const DATE_TARGET = new Date('06/21/2022 0:01 AM');
-        // DOM for render
-        const SPAN_DAYS = document.querySelector('span#days');
-        const SPAN_HOURS = document.querySelector('span#hours');
-        const SPAN_MINUTES = document.querySelector('span#minutes');
-        const SPAN_SECONDS = document.querySelector('span#seconds');
-        // Milisegundos para los calculos
-        const MILLISECONDS_OF_A_SECOND = 1000;
-        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
-        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
-        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
-
-        //===
-        // FUNCTIONS
-        //===
-
-        /**
-        * Metodo que actualiza la cuenta regresiva y la muestra
-        */
-        function updateCountdown() {
-            // Calculos
-            const NOW = new Date()
-            const DURATION = DATE_TARGET - NOW;
-            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
-            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
-            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
-            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
-
-
-            // Render
-            SPAN_DAYS.textContent = REMAINING_DAYS;
-            SPAN_HOURS.textContent = REMAINING_HOURS;
-            SPAN_MINUTES.textContent = REMAINING_MINUTES;
-            SPAN_SECONDS.textContent = REMAINING_SECONDS;
-        }
-        updateCountdown();
-        // actualiza cada segundo
-        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
-    });
+    
 </script>
 
 <body>
@@ -162,8 +123,8 @@
         <br><br>
         <!--Tarjetas CAMBIAR TAMANO Y ALINEAR-->
         <div id="temporizador" class="container-fluid">
-            <!-- Contador regresivo -->
-            <h4 id="h4.temporizador">El invierno comenzará en: </h4>
+            <!-- Contador regresivo NO FUNCIONA PORQUE ESTA EN OTRA HOJA JS-->
+            <h4 id="h4.temporizador">La Primavera comenzará en: </h4>
             <section>
                 <p id="temp">
                     <span id="days"></span> : <span id="hours"></span> : <span id="minutes"></span> : <span
@@ -404,7 +365,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
 </body>
 
