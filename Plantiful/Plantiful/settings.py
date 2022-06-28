@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "plant",
     "crispy_forms",
+    "rest_cliente",
 ]
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
