@@ -81,6 +81,8 @@
                     <th id="titTabla">Nombre</th>
                     <th id="titTabla">Apellidos</th>
                     <th id="titTabla">Correo</th>
+                    <th id="titTabla">Telefono</th>
+                    <th id="titTabla">Direccion</th>
                     <th id="titTabla"></th>
                     <th id="titTabla"></th>
                 </tr>
@@ -92,6 +94,8 @@
                     <td>{{clientes.nombre}}</td>
                     <td>{{clientes.apellido}}</td>
                     <td>{{clientes.correo}}</td>
+                    <td>{{clientes.telefono}}</td>
+                    <td>{{clientes.direccion}}</td>
                     <td><a href="{% url 'modificar_cliente' clientes.id %}">Modificar</a></td>
                     <td><a id="eliminar" href="{% url 'eliminar_cliente' clientes.id %}">Eliminar</a></td> 
                 </tr>

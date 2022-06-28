@@ -8,6 +8,8 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length = 100, verbose_name='Nombre')
     apellido = models.CharField(max_length = 100, verbose_name='Apellido')
     correo = models.EmailField(max_length = 100, verbose_name='E-mail')
+    telefono = models.PositiveIntegerField(null=True, blank=True ,verbose_name='Telefono')
+    direccion = models.CharField(null=True, blank=True, max_length= 100, verbose_name='Direccion')
 
     def __str__(self):
         return self.nombre
