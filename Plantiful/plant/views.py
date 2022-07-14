@@ -1,9 +1,8 @@
 
 from django.shortcuts import redirect, render
-from pytest import console_main
-
-from plant.forms import ClienteForm, ProductoForm
+from plant.forms import ClienteForm, ProductoForm, CustomUserCreationForm
 from .models import Cliente, Producto 
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -13,7 +12,11 @@ def index(request):
 
 
 def galeria(request):
-    return render(request, 'galeria.html')
+    producto = Producto.objects.all()
+    contexto = {
+         'producto':producto
+    }
+    return render(request, 'galeria.html', contexto)
 
 
 def somos(request):
@@ -154,20 +157,12 @@ def crear_producto(request):
         'form_producto' : form_producto
         }
 
-    elif request.method == 'FILES':
+    elif request.method == 'POST':
      
-        form_producto = ProductoForm()
+        form_producto = ProductoForm(request.POST, files=request.FILES)
         context = {
         'form_producto' : form_producto
          }
-        if form_producto.is_valid():
-            form_producto.save()
-            return redirect('listaP')
-    else:
-        form_producto = ProductoForm(request.POST)
-        context = {
-        'form_producto' : form_producto
-        }
         if form_producto.is_valid():
             form_producto.save()
             return redirect('listaP')
@@ -196,3 +191,17 @@ def eliminar_producto(request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
     return redirect('listaP')
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    if request.method == "POST":
+        formulario =CustomUserCreationForm(data=request.POST) 
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            return redirect(to="index")
+        data["form"] = formulario
+    return render(request, 'registration/registro.html', data)

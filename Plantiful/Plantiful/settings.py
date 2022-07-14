@@ -42,11 +42,14 @@ INSTALLED_APPS = [
     "plant",
     "crispy_forms",
     "rest_cliente",
+    "django.contrib.humanize"
 ]
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
-LOGIN_REDIRECT_URL="/"
-LOGOUT_REDIRECT_URL="/"
+
+LOGIN_REDIRECT_URL="/"#redirige a la raiz del sitio al iniciar sesión
+
+LOGOUT_REDIRECT_URL="/"# redirige a la raiz del sitio al cerrar sesión
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -106,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "es-es"
 
 TIME_ZONE = "UTC"
 
@@ -119,6 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import os
+
 STATICFIELS_DIRS = (os.path.join(BASE_DIR, 'Plantiful/plant/static'),)
 
 # Default primary key field type
@@ -128,3 +134,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL ='media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

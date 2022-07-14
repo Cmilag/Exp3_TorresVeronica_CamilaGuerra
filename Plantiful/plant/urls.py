@@ -1,6 +1,8 @@
 from telnetlib import LOGOUT
 from django.urls import URLPattern, path
-from .views import crear_cliente, crear_producto, modificar_cliente, modificar_producto, eliminar_cliente, eliminar_producto, index, galeria, lista, somos, contacto, ingresar, listaP
+from .views import crear_cliente, crear_producto, modificar_cliente, modificar_producto, \
+    eliminar_cliente, eliminar_producto, index, galeria, lista, somos, contacto, ingresar, \
+        listaP, registro
 
 urlpatterns = [
     path('', index, name="index"),
@@ -18,4 +20,5 @@ urlpatterns = [
     path('crearProducto/', crear_producto, name="crear_producto"),  
     path('modificarProducto/<id>/', modificar_producto, name="modificar_producto"),
     path('eliminarProducto/<id>/', eliminar_producto, name="eliminar_producto"),
+    path('registro/', registro, name="registro")
 ]

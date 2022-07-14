@@ -16,6 +16,42 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link type='text/css' rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+    <script>
+        function Mover(obj) {
+            obj.style.background = "#B87247";
+        }
+        function MoverFuera(obj) {
+            obj.style.background = "#2B7929";
+
+        }
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.get("https://apis.digital.gob.cl/dpa/regiones",
+                function (data) {
+                    $.each(data, function (i, item) {
+                        $("#float-region").append("<option value='" + item.codigo + "'>" + item.nombre + "</option>");
+                    })
+                });
+
+        });
+    </script>
+    <script>
+        function getComunas() {
+            $("#float-comuna").empty();
+            var select = document.getElementById("float-region");
+            $.get("https://apis.digital.gob.cl/dpa/regiones/" + select.value + "/comunas",
+                function (data) {
+                    $.each(data, function (i, item) {
+                        $("#float-comuna").append("<option value='" + item.codigo + "'>" + item.nombre + "</option>");
+                    })
+                });
+        }
+    </script>
+
 </head>
 
 <body>
@@ -44,7 +80,7 @@
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ingresar' %}">Registrate</a>
+                    <a class="nav-link" href="{% url 'ingresar' %}">Ingresar</a>
                 </li>
 
                 {% if user.is_authenticated %}
@@ -70,26 +106,35 @@
             </ul>
         </div>
     </nav>
+
+
+
+
     <main role="main" class="container col-12">
-        <title>Crear producto</title>
-    </main>
-    <div class="container">
-        <br><br><br>
-        <div class="container-fluid">
-            <form method="POST" action="#" id="formulario" enctype="multipart/form-data">
-                <a href="{% url 'listaP' %}" class="btn btn-success">&#8672; Volver al Listado</a>
-                <br><br><br>
-                <div class="form-group">
-                    {% csrf_token %}
-                    {{form_producto.as_p}}
 
+        {% load crispy_forms_tags %}
+        <div class="container">
+            <br><br><br>
+            <div class="row">
+                <div class="col-12 col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="div-contacto">
+                                <h1>Registrate</h1>
+                            </div> <!-- div registro-->
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <a href="{% url 'index' %}">Volver al Inicio</a> |
+                                <a href="{% url 'login' %}">Inicia sesión</a>
+                                <input type="submit" class="btn btn-success" value="Registrar">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <input type="reset" class="btn btn-success" value="Limpiar">
-                <input type="submit" class="btn btn-success" value="Enviar">
-            </form>
-
+            </div>
         </div>
-    </div>
+    </main>
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-lg-between p-4 border-bottom">
@@ -114,6 +159,7 @@
             <!-- Right -->
         </section>
         <!-- Section: Social media -->
+
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">

@@ -16,6 +16,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link type='text/css' rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    
 </head>
 
 <body>
@@ -63,7 +64,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Incia Sesión</a>
+                  <a class="nav-link" href="{% url 'login' %}" style="color: #2B7929">Inicia Sesión</a>
                 </li>
                 {% endif %}
             </ul>
@@ -85,7 +86,8 @@
                             <form action="#" method="POST">
                                 {% csrf_token %}
                                 {{ form | crispy }}
-                                <input type="submit" class="btn btn-success" value="Volver al Inicio"href="{% url 'index' %}">
+                                <a href="{% url 'index' %}">Inicia sesión</a> |
+                                <a href="{% url 'registro' %}">Registrate</a>
                                 <input type="submit" class="btn btn-success" value="Ingresar">
                             </form>
                         </div>
